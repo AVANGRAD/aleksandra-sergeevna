@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отличные новости!</title>
+<style>
+  :root { --ink:#18213d; --muted:#65708e; --purple:#7257e8; --pink:#ff78ae; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; display:grid; place-items:center; padding:28px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 15%, #ffe1ee 0 9%, transparent 28%),
+      radial-gradient(circle at 88% 82%, #dcd6ff 0 10%, transparent 30%),
+      linear-gradient(135deg,#f8f7ff,#fff8fb);
+  }
+  .card {
+    width:min(720px,100%); position:relative; overflow:hidden; text-align:center;
+    padding:clamp(34px,7vw,66px) clamp(24px,6vw,58px);
+    border:1px solid rgba(255,255,255,.9); border-radius:32px;
+    background:rgba(255,255,255,.82); backdrop-filter:blur(12px);
+    box-shadow:0 24px 80px rgba(67,52,130,.14);
+  }
+  .spark { position:absolute; font-size:28px; opacity:.75; }
+  .s1{top:28px;left:34px}.s2{top:55px;right:40px}.s3{bottom:35px;left:45px}.s4{bottom:35px;right:40px}
+  .tag { display:inline-block; padding:9px 16px; border-radius:99px; color:#674bd3; background:#f0edff; font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  h1 { margin:22px 0 10px; font-size:clamp(32px,7vw,56px); line-height:1.05; letter-spacing:-.045em; }
+  .subtitle { margin:0 auto; max-width:480px; color:var(--muted); font-size:17px; line-height:1.6; }
+  .grade {
+    width:176px; height:176px; margin:34px auto 25px; display:grid; place-items:center;
+    border-radius:50%; color:white; font-size:84px; font-weight:900; letter-spacing:-.07em;
+    background:linear-gradient(145deg,var(--purple),#a17bff 58%,var(--pink));
+    box-shadow:0 16px 36px rgba(114,87,232,.3), inset 0 3px 10px rgba(255,255,255,.3);
+    position:relative;
+  }
+  .grade:after { content:""; position:absolute; inset:9px; border:1px solid rgba(255,255,255,.45); border-radius:50%; }
+  .subject { font-size:19px; font-weight:800; }
+  .note { margin:8px 0 28px; color:var(--muted); }
+  .button {
+    display:inline-block; border:0; border-radius:14px; padding:14px 22px;
+    color:white; background:var(--ink); font-size:15px; font-weight:750; cursor:pointer;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .button:hover { transform:translateY(-2px); box-shadow:0 10px 22px #18213d30; }
+  #message { min-height:26px; margin-top:18px; color:#674bd3; font-weight:700; }
+  footer { margin-top:30px; color:#9299ad; font-size:12px; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="spark s1">✦</span><span class="spark s2">✧</span>
+    <span class="spark s3">✧</span><span class="spark s4">✦</span>
+    <div class="tag">Хорошие новости</div>
+    <h1>Александра Сергеевна</h1>
+    <p class="subtitle">Сегодня есть отличный повод для радости и хорошего настроения!</p>
+    <div class="grade" aria-label="Оценка 9">9</div>
+    <div class="subject">по английскому языку 🇬🇧</div>
+    <p class="note">Так держать! Пусть впереди будет ещё больше успехов.</p>
+    <button class="button" onclick="celebrate()">Нажми для поздравления ✨</button>
+    <div id="message" aria-live="polite"></div>
+    <footer>Маленькая страничка с большими новостями ♡</footer>
+  </main>
+<script>
+function celebrate() {
+  document.getElementById('message').textContent = 'Ура! Поздравляем с девяткой! 🎉';
+}
+</script>
+</body>
+</html>
